@@ -1,0 +1,10 @@
+#!/bin/csh
+
+xset fp= /usr/share/fonts/X11/100dpi,/usr/share/fonts/X11/misc
+xset fp rehash
+xrdb ~/.Xdefaults
+xsetroot -solid black
+autocutsel -fork -s CLIPBOARD
+vncconfig -nowin &
+xterm -geom 80x15+258+160 &
+fvwm2 -f ~/.fvwmrc

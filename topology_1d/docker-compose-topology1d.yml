@@ -1,0 +1,131 @@
+---
+version: "3"
+
+networks:
+  net1:
+    enable_ipv6: false
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 192.168.10.0/24
+        gateway: 192.168.10.1
+  net2:
+    enable_ipv6: false
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 192.168.20.0/24
+        gateway: 192.168.20.1
+  net300:
+    enable_ipv6: false
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 192.168.140.0/24
+        gateway: 192.168.140.1
+  net400:
+    enable_ipv6: false
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 192.168.150.0/24
+        gateway: 192.168.150.1
+services:
+  R1:
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    privileged: false
+    image: frr:2.0
+    container_name: R1
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+            - $PWD/topology_1d/topology1d/R1:/etc/frr:rw
+    command: "/bin/bash /etc/frr/start_frr.sh"
+    networks:
+      net1:
+        ipv4_address: 192.168.10.100
+      net300:
+        ipv4_address: 192.168.140.100
+
+  R3:
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    privileged: false
+    image: frr:2.0
+    container_name: R3
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+            - $PWD/topology_1d/topology1d/R3:/etc/frr:rw
+    command: "/bin/bash /etc/frr/start_frr.sh"
+    networks:
+      net2:
+        ipv4_address: 192.168.20.210
+      net400:
+        ipv4_address: 192.168.150.210
+
+  R4:
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    privileged: false
+    image: frr:2.0
+    container_name: R4
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+            - $PWD/topology_1d/topology1d/R4:/etc/frr:rw
+    command: "/bin/bash /etc/frr/start_frr.sh"
+    networks:
+      net300:
+        ipv4_address: 192.168.140.145
+      net400:
+        ipv4_address: 192.168.150.145
+  HostA:
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    privileged: false
+    image: frr:2.0
+    container_name: HostA
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+            - $PWD/topology_1d/topology1d/HostA:/etc/frr:rw
+    command: "/bin/bash /etc/frr/start_frr.sh"
+    networks:
+      net1:
+        ipv4_address: 192.168.10.99
+        
+  HostB:
+    cap_add:
+      - CAP_NET_RAW
+      - NET_ADMIN
+      - SYS_ADMIN
+    privileged: false
+    image: frr:2.0
+    container_name: HostB
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+            - $PWD/topology_1d/topology1d/HostB:/etc/frr:rw
+    command: "/bin/bash /etc/frr/start_frr.sh"
+    networks:
+      net2:
+        ipv4_address: 192.168.20.99

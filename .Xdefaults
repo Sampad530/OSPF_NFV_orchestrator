@@ -1,0 +1,17 @@
+
+xterm*ScrollBar:	on
+xterm*SaveLines:	1000
+xterm*ScrollInput:	on
+xterm*ScrollKey:	on
+xterm*background:	Black
+xterm*foreground:	White
+xterm*DeiconifyWarp:    on
+xterm*TitleBar:		off
+xterm*JumpScroll:       on
+xterm*ttyModes:  	erase ^H
+xterm*borderColor:	Firebrick
+xterm*pointerColorBackground: black
+xterm*pointerColor:	white
+xterm*Font:		10x20
+xterm*allowTitleOps:    false
+xterm*Geometry:		80x30

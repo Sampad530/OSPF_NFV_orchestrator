@@ -1,0 +1,33 @@
+<rspec xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jacks="http://www.protogeni.net/resources/rspec/ext/jacks/1" xmlns:client="http://www.protogeni.net/resources/rspec/ext/client/1" xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" xmlns="http://www.geni.net/resources/rspec/3" xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/manifest.xsd" type="manifest" expires="2023-09-22T00:00:00Z">
+  <rspec_tour xmlns="http://www.protogeni.net/resources/rspec/ext/apt-tour/1">
+    <description type="markdown">
+A single compute node. 
+
+</description>
+  </rspec_tour>
+  <emulab:password name="vncpasswd" encrypted="true">-----BEGIN PKCS7-----
+MIICJQYJKoZIhvcNAQcDoIICFjCCAhICAQAxggHNMIIByQIBADCBsDCBqDELMAkG
+A1UEBhMCVVMxDTALBgNVBAgTBFV0YWgxFzAVBgNVBAcTDlNhbHQgTGFrZSBDaXR5
+MR0wGwYDVQQKExRVdGFoIE5ldHdvcmsgVGVzdGJlZDEPMA0GA1UECxMGQVBUTEFC
+MRcwFQYDVQQDEw53d3cuYXB0bGFiLm5ldDEoMCYGCSqGSIb3DQEJARYZdGVzdGJl
+ZC1vcHNAZmx1eC51dGFoLmVkdQIDFzWHMA0GCSqGSIb3DQEBAQUABIIBAAuKGL2q
+O7TQ26a7xVrypUyJyvQn3EvSKxhcVka5en/0pBYnuWDrQJwSfmPrMJ6KIR9Yt4xV
+xRBaIDsm/vo0y52RjO68+kM+4EYb+h9zyhYUGPTWIJ/GwejlZZTuPmWuuo13xfyG
+rDmbAYYzZBMJr7pyuh1RXhouRCtY66wdLYdZyWLS0vhL8VTh/eCqmB07/uLFhwf7
+ERkhDNTliFWoj/ekrA6oj7MJTLxtSX2URYLcNyhWqnsCvexJEB4YrCrvtg7vtn1r
+obo2wBklnILA77SA81X/xhZ3JEVvn+1iF2h6258s8r1HxyVoDSoqjRF4NttoUbEf
+E1klO537ytMMERcwPAYJKoZIhvcNAQcBMB0GCWCGSAFlAwQBKgQQdimYShsjYei6
+xcZUlCUFKYAQEJnzmvAH2d5O04J30R1+PA==
+-----END PKCS7-----
+</emulab:password>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node" exclusive="true" component_manager_id="urn:publicid:IDN+emulab.net+authority+cm" component_id="urn:publicid:IDN+emulab.net+node+pc710" sliver_id="urn:publicid:IDN+emulab.net+sliver+1364602">
+    <sliver_type name="raw-pc">
+      <disk_image name="urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU22-64-STD"/>
+    </sliver_type>
+    <hardware_type name="d430"/>
+    <services>
+      <execute shell="sh" command="(cd /var/tmp &amp;&amp;         (test -e /var/tmp/novnc-setup ||          git clone https://gitlab.flux.utah.edu/emulab/novnc-setup.git) &amp;&amp;         /bin/bash /var/tmp/novnc-setup/startvnc.sh)"/>
+    <login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="kobus"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="bill3"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="axetang"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="mugahed"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="BasitAw"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="m_ali"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="Zahra"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="Pavani"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="kylittle"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="anirudhk"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="VTG003"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="andino"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="tliddell"/><login authentication="ssh-keys" hostname="pc710.emulab.net" port="22" username="SBanik"/><emulab:console server="boss.emulab.net"/><emulab:recovery available="true"/><emulab:powercycle available="true"/><emulab:imageable available="true"/></services>
+    <emulab:x11vnc/>
+  <emulab:vnode name="pc710" hardware_type="d430" disk_image="emulab-ops/UBUNTU22-64-STD:5"/><host name="node.Sampad.cs6480-2023.emulab.net" ipv4="155.98.36.10"/></node>
+<emulab:portal name="powder" url="https://www.powderwireless.net/status.php?uuid=c1d2930f-47cf-11ee-9f39-e4434b2381fc" project="cs6480-2023" experiment="Sampad" sequence="1693466817"/><rs:site_info xmlns:rs="http://www.protogeni.net/resources/rspec/ext/site-info/1"><rs:location country="US" latitude="40.768652" longitude="-111.84581"/></rs:site_info></rspec>

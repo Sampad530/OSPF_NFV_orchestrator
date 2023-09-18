@@ -1,0 +1,9 @@
+#!/bin/csh
+
+rm -f ~/.ssh/vnc.agent
+eval `ssh-agent -c -a ~/.ssh/vnc.agent`
+
+# Default settings allow multiple clients. Instead, one only
+set Xopts = "-NeverShared=1 -DisconnectClients=0"
+
+vncserver :1 -localhost no -geometry 1800x1000 $Xopts >& ~/.X11log &

@@ -1,0 +1,5 @@
+/usr/bin/xauth:  file /users/SBanik/.Xauthority does not exist
+
+New Xtigervnc server 'pc710.emulab.net:1 (SBanik)' on port 5901 for display :1.
+Use xtigervncviewer -SecurityTypes VncAuth,TLSVnc -passwd /users/SBanik/.vnc/passwd pc710.emulab.net:1 to connect to the VNC server.
+
